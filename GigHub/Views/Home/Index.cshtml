@@ -6,6 +6,38 @@
 <ul>
     @foreach (var gig in Model)
     {
-        <li>@gig.DateTime - @gig.Artist.Name</li>
+        <li>
+            <div>
+                <div>
+                    @gig.DateTime.ToString("MMM d, yyyy")
+                </div>
+                <div>
+                    @gig.Artist.Name
+                </div>
+                <div>
+                    <button data-gig-id="@gig.Id" class="btn btn-default btn-sm js-toggle-attendance">Going?</button>
+                </div>
+            </div>
+        </li>
     }
 </ul>
+@section scripts
+{
+    <script>
+        $(document).ready(function () {
+            $(".js-toggle-attendance").click(function (e) {
+                var button = $(e.target);
+                $.post("/api/attendances", { gigId: button.attr("data-gig-id") })
+                    .done(function () {
+                        button
+                            .removeClass("btn-default")
+                            .addClass("btn-info")
+                            .text("Going");
+                    })
+                    .fail(function () {
+                        alert("Something failed.")
+                });
+            });
+        });
+    </script>
+}
