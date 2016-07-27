@@ -209,18 +209,15 @@
     <Compile Include="Migrations\201607212042229_AddForeignKeyPropertiesToGig.Designer.cs">
       <DependentUpon>201607212042229_AddForeignKeyPropertiesToGig.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201607231400182_AddAttendanceModel.cs" />
-    <Compile Include="Migrations\201607231400182_AddAttendanceModel.Designer.cs">
-      <DependentUpon>201607231400182_AddAttendanceModel.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201607241347258_AddNameToApplicationUser.cs" />
-    <Compile Include="Migrations\201607241347258_AddNameToApplicationUser.Designer.cs">
-      <DependentUpon>201607241347258_AddNameToApplicationUser.cs</DependentUpon>
+    <Compile Include="Migrations\201607262331550_AddFollowingAndAttendance.cs" />
+    <Compile Include="Migrations\201607262331550_AddFollowingAndAttendance.Designer.cs">
+      <DependentUpon>201607262331550_AddFollowingAndAttendance.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
     <Compile Include="Models\Attendance.cs" />
+    <Compile Include="Models\Following.cs" />
     <Compile Include="Models\Genre.cs" />
     <Compile Include="Models\Gig.cs" />
     <Compile Include="Models\ApplicationUser.cs" />
@@ -316,11 +313,8 @@
     <EmbeddedResource Include="Migrations\201607212042229_AddForeignKeyPropertiesToGig.resx">
       <DependentUpon>201607212042229_AddForeignKeyPropertiesToGig.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201607231400182_AddAttendanceModel.resx">
-      <DependentUpon>201607231400182_AddAttendanceModel.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201607241347258_AddNameToApplicationUser.resx">
-      <DependentUpon>201607241347258_AddNameToApplicationUser.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201607262331550_AddFollowingAndAttendance.resx">
+      <DependentUpon>201607262331550_AddFollowingAndAttendance.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

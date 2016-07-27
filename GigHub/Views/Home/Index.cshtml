@@ -3,64 +3,62 @@
     ViewBag.Title = "Home Page";
 }
 
-<ul>
-    @foreach (var gig in Model.UpcomingGigs)
-    {
-        <li>
-            <div>
-                <div>
-                    @gig.DateTime.ToString("MMM d, yyyy")
-                </div>
-                <div>
-                    @gig.Artist.Name
-                </div>
-                <div>
-                    <button data-gig-id="@gig.Id"
-                            class="btn
-                            @(Model.Attendances.Contains(gig.Id) ? "btn-info" : "btn-default") 
+<div class="container">
+@foreach (var gig in Model.UpcomingGigs)
+{
+
+<div class="row">
+    <div class="col-sm-2">
+        @gig.DateTime.ToString("MMM d, yyyy") - @gig.Artist.Name
+    </div>
+    <div class="col-sm-pull-10">
+        <button data-gig-id="@gig.Id"
+                class="btn
+                            @(Model.Attendances.Contains(gig.Id) ? "btn-info" : "btn-default")
                             btn-sm js-toggle-attendance">
-                        @(Model.Attendances.Contains(gig.Id) ? "Going" : "Going?")
-                    </button>
-                </div>
-            </div>
-        </li>
-    }
-</ul>
+                @(Model.Attendances.Contains(gig.Id) ? "Going " : "Going?")
+        </button>
+    </div>
+</div>
+
+}
+</div>
+
 @section scripts
 {
-    <script>
-        $(document).ready(function () {
-            $(".js-toggle-attendance").click(function (e) {
-                var button = $(e.target);
+<script>
+    $(document).ready(function () {
+        $(".js-toggle-attendance").click(function (e) {
+            var button = $(e.target);
 
-                if (button.hasClass("btn-default")) {
-                    $.post("/api/attendances", { gigId: button.attr("data-gig-id") })
-                        .done(function () {
-                            button
-                                .removeClass("btn-default")
-                                .addClass("btn-info")
-                                .text("Going");
-                        })
-                        .fail(function () {
-                            alert("Something failed.")
-                        });
-                } else {
-                    $.ajax({
-                        url: "/api/attendances/" + button.attr("data-gig-id"),
-                        method: "DELETE"
+            if (button.hasClass("btn-default")) {
+                $.post("/api/attendances", { gigId: button.attr("data-gig-id") })
+                    .done(function () {
+                        button
+                            .removeClass("btn-default")
+                            .addClass("btn-info")
+                            .text("Going");
                     })
-                        .done(function () {
-                            button
-                                .removeClass("btn-info")
-                                .addClass("btn-default")
-                                .text("Going?");
-                        })
-                        .fail(function () {
-                            alert("Something failed."); 
-                        });
+                    .fail(function () {
+                        alert("Something failed.")
+                    });
+            } else {
+                $.ajax({
+                    url: "/api/attendances/" + button.attr("data-gig-id"),
+                    method: "DELETE"
+                })
+                    .done(function () {
+                        button
+                            .removeClass("btn-info")
+                            .addClass("btn-default")
+                            .text("Going?");
+                    })
+                    .fail(function () {
+                        alert("Something failed.");
+                    });
 
-                };
-            });
+            };
         });
-    </script>
+    });
+</script>
 }
