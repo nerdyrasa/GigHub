@@ -9,6 +9,7 @@ namespace GigHub.ViewModels
     public class GigsViewModel
     {
         public ILookup<int, Attendance> Attendances;
+        public ILookup<string, Following> Followings;
 
         public IEnumerable<Gig> UpcomingGigs { get; set; }
 
