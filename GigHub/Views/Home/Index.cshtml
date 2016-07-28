@@ -23,14 +23,14 @@
                 }
             </div>
             <div class="col-sm-pull-8">
-                @if (Model.ShowActions)
+                @*@if (Model.ShowActions)
                 {
                     <button data-followee-id="@gig.ArtistId" class="btn 
                             @(Model.Followings.Contains(gig.ArtistId) ? "btn-info" : "btn-default") 
                              js-toggle-following">
                         @(@Model.Followings.Contains(gig.ArtistId) ? "Following" : "Follow")
                     </button>
-                }
+                }*@
             </div>
         </div>
 
