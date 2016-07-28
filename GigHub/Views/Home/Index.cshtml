@@ -12,19 +12,25 @@
                 @gig.DateTime.ToString("MMM d, yyyy") - @gig.Artist.Name
             </div>
             <div class="col-sm-pull-2">
-                <button data-gig-id="@gig.Id"
-                        class="btn
-                            @(Model.Attendances.Contains(gig.Id) ? "btn-info" : "btn-default")
-                            btn-sm js-toggle-attendance">
-                    @(Model.Attendances.Contains(gig.Id) ? "Going " : "Going?")
-                </button>
+                @if (Model.ShowActions)
+                {
+                    <button data-gig-id="@gig.Id"
+                            class="btn
+                                @(Model.Attendances.Contains(gig.Id) ? "btn-info" : "btn-default")
+                                btn-sm js-toggle-attendance">
+                        @(Model.Attendances.Contains(gig.Id) ? "Going " : "Going?")
+                    </button>
+                }
             </div>
             <div class="col-sm-pull-8">
-                <button data-followee-id="@gig.ArtistId" class="btn 
-                        @(Model.Followings.Contains(gig.ArtistId) ? "btn-info" : "btn-default") 
-                         js-toggle-following">
-                    @(@Model.Followings.Contains(gig.ArtistId) ? "Following" : "Follow")
-                </button>
+                @if (Model.ShowActions)
+                {
+                    <button data-followee-id="@gig.ArtistId" class="btn 
+                            @(Model.Followings.Contains(gig.ArtistId) ? "btn-info" : "btn-default") 
+                             js-toggle-following">
+                        @(@Model.Followings.Contains(gig.ArtistId) ? "Following" : "Follow")
+                    </button>
+                }
             </div>
         </div>
 

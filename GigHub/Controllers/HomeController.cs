@@ -24,7 +24,8 @@ namespace GigHub.Controllers
         {
             var upcomingGigs = _context.Gigs
                 .Include(g => g.Artist)
-                .Where(g => g.DateTime > DateTime.Now);
+                .Where(g => g.DateTime > DateTime.Now)
+                .ToList();
 
             var userId = User.Identity.GetUserId();
 
@@ -40,7 +41,8 @@ namespace GigHub.Controllers
             {
                 UpcomingGigs = upcomingGigs,
                 Attendances = attendances,
-                Followings = followings
+                Followings = followings,
+                ShowActions = User.Identity.IsAuthenticated
             };
 
             return View(viewModel);
