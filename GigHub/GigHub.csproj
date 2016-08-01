@@ -215,6 +215,10 @@
     <Compile Include="Migrations\201607262331550_AddFollowingAndAttendance.Designer.cs">
       <DependentUpon>201607262331550_AddFollowingAndAttendance.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201608011223059_AddNotification.cs" />
+    <Compile Include="Migrations\201608011223059_AddNotification.Designer.cs">
+      <DependentUpon>201608011223059_AddNotification.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
@@ -224,6 +228,9 @@
     <Compile Include="Models\Gig.cs" />
     <Compile Include="Models\ApplicationUser.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Notification.cs" />
+    <Compile Include="Models\NotificationType.cs" />
+    <Compile Include="Models\UserNotification.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\FutureDate.cs" />
@@ -317,6 +324,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201607262331550_AddFollowingAndAttendance.resx">
       <DependentUpon>201607262331550_AddFollowingAndAttendance.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201608011223059_AddNotification.resx">
+      <DependentUpon>201608011223059_AddNotification.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
