@@ -1,7 +1,9 @@
 ﻿@model GigHub.ViewModels.GigsViewModel
 @{
-    ViewBag.Title = "Home Page";
+    ViewBag.Title = "Upcoming Gigs";
 }
+
+<h2>All Upcoming Gigs</h2>
 
 <div class="container">
     @foreach (var gig in Model.UpcomingGigs)
@@ -9,7 +11,11 @@
 
         <div class="row">
             <div class="col-sm-2">
-                @gig.DateTime.ToString("MMM d, yyyy") - @gig.Artist.Name
+                @gig.DateTime.ToString("MMM d, yyyy")
+            </div>
+            <div class="col-sm-2">
+                <a href="" class="href"></a>
+                @gig.Artist.Name
             </div>
             <div class="col-sm-pull-2">
                 @if (Model.ShowActions)
@@ -22,15 +28,15 @@
                     </button>
                 }
             </div>
-            <div class="col-sm-pull-8">
+            <div class="col-sm-pull-6">
                 @*@if (Model.ShowActions)
-                {
-                    <button data-followee-id="@gig.ArtistId" class="btn 
-                            @(Model.Followings.Contains(gig.ArtistId) ? "btn-info" : "btn-default") 
-                             js-toggle-following">
-                        @(@Model.Followings.Contains(gig.ArtistId) ? "Following" : "Follow")
-                    </button>
-                }*@
+                    {
+                        <button data-followee-id="@gig.ArtistId" class="btn
+                                @(Model.Followings.Contains(gig.ArtistId) ? "btn-info" : "btn-default")
+                                 js-toggle-following">
+                            @(@Model.Followings.Contains(gig.ArtistId) ? "Following" : "Follow")
+                        </button>
+                    }*@
             </div>
         </div>
 
