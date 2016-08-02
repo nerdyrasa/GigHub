@@ -12,6 +12,11 @@
         <div>@gig.DateTime.ToString()</div>
         <div>@gig.Venue</div>
         <div>@gig.Genre.Name</div>
-        <div><button class="btn btn-link">Update</button><button class="btn btn-link">Delete</button></div>
+        <div>
+            <a href="@Url.Action("Edit", "Gigs", new { id = gig.Id } )">
+                Edit
+            </a>
+            
+        </div>
     }
 </div>

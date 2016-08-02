@@ -65,5 +65,29 @@ namespace GigHub.Controllers
 
             return View(myGigs);
         }
+
+        [Authorize]
+        public ActionResult Edit(int id)
+        {
+            var gig = _context.Gigs.Single(g => g.Id == id);
+
+            if (gig == null)
+                throw new ArgumentNullException();
+
+            var genres = _context.Genres.ToList();
+
+            var viewModel = new GigFormViewModel
+            {
+                Id = gig.Id,
+                Venue = gig.Venue,
+                Genres = genres,
+                Genre = gig.GenreId,
+                Date = gig.DateTime.ToString("d MMM yyyy"),
+                Time = gig.DateTime.ToString("HH:mm")
+
+            };
+
+            return View("Create", viewModel);
+        }
     }
 }
