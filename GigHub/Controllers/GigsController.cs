@@ -69,7 +69,9 @@ namespace GigHub.Controllers
         [Authorize]
         public ActionResult Edit(int id)
         {
-            var gig = _context.Gigs.Single(g => g.Id == id);
+            var userId = User.Identity.GetUserId();
+
+            var gig = _context.Gigs.Single(g => g.Id == id && g.ArtistId == userId);
 
             if (gig == null)
                 throw new ArgumentNullException();
