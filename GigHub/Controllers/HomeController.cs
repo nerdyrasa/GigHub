@@ -24,7 +24,7 @@ namespace GigHub.Controllers
         {
             var upcomingGigs = _context.Gigs
                 .Include(g => g.Artist)
-                .Where(g => g.DateTime > DateTime.Now)
+                .Where(g => g.DateTime > DateTime.Now && !g.IsCanceled)
                 .ToList();
 
             var userId = User.Identity.GetUserId();

@@ -15,8 +15,21 @@
         <div>
             <a href="@Url.Action("Edit", "Gigs", new { id = gig.Id } )">
                 Edit
+            </a> |
+            <a href="#" class="js-cancel-gig" data-gig-id="@gig.Id">
+                Cancel
             </a>
-            
         </div>
     }
 </div>
+@section scripts
+{
+    <script>
+        $(document).ready(function (){
+            $(".js-cancel-gig").click(function(e){
+                var link = e.target;
+                alert("this link was clicked");  
+            });
+        });
+</script>
+}
