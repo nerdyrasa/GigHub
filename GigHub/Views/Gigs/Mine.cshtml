@@ -6,9 +6,10 @@
 
 <h2>My Upcoming Gigs</h2>
 
-<div>
-    @foreach (var gig in Model)
-    {
+
+@foreach (var gig in Model)
+{
+    <div class="gig">
         <div>@gig.DateTime.ToString()</div>
         <div>@gig.Venue</div>
         <div>@gig.Genre.Name</div>
@@ -20,16 +21,30 @@
                 Cancel
             </a>
         </div>
-    }
-</div>
+    </div>
+}
+
 @section scripts
 {
     <script>
-        $(document).ready(function (){
-            $(".js-cancel-gig").click(function(e){
-                var link = e.target;
-                alert("this link was clicked");  
+        $(document).ready(function () {
+            $(".js-cancel-gig").click(function (e) {
+                var link = $(e.target);
+
+                $.ajax({
+                    method: "DELETE",
+                    url: "/api/gigs/" + link.attr("data-gig-id")
+                })
+                .done(function () {
+                    link.parents(".gig").fadeOut(function () {
+                        $(this).remove()
+                    });
+                })
+                .fail(function () {
+                    alert("something went wrong");
+                });
+
             });
         });
-</script>
+    </script>
 }
