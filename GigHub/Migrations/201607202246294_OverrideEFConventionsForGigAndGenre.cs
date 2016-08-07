@@ -1,8 +1,7 @@
 namespace GigHub.Migrations
 {
-    using System;
     using System.Data.Entity.Migrations;
-    
+
     public partial class OverrideEFConventionsForGigAndGenre : DbMigration
     {
         public override void Up()
