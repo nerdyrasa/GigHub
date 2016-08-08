@@ -20,7 +20,8 @@ namespace GigHub
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
                       "~/Scripts/bootstrap.js",
-                      "~/Scripts/respond.js"));
+                      "~/Scripts/respond.js",
+                      "~/Scripts/bootbox.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/gigs").Include(
                       "~/Scripts/gigs.js"));
